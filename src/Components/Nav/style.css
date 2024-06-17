@@ -1,0 +1,77 @@
+.navbar {
+  height: 100vh;
+  width: 16rem;
+}
+
+.navbarHead {
+  height: 5.4rem;
+  width: 15rem;
+}
+
+.NavItems {
+  height: 4rem;
+  width: 100%;
+}
+
+.NavItems:hover {
+  background-color: #007fff;
+  .NavIcon {
+    fill: white;
+  }
+}
+
+.NavitemsActive {
+  background-color: #007fff;
+  .NavIcon {
+    fill: white;
+  }
+  .NavIconContainer {
+    background-color: #007fff;
+  }
+  .textNavItems {
+    color: white;
+  }
+}
+
+.NavItems:hover div p {
+  color: white;
+}
+
+.NavIconContainer {
+  height: 4rem;
+  width: 8rem;
+}
+
+.NavIconContainer :hover {
+  height: 5rem;
+  width: 8rem;
+  background-color: #007fff;
+}
+
+.NavIconDiv {
+  min-height: 2rem;
+  min-width: 6rem;
+  cursor: pointer;
+}
+
+.NavIcon {
+  fill: #707070;
+}
+
+.close {
+  height: 100vh;
+  width: 6rem;
+}
+
+.closeHeader {
+  width: 100%;
+}
+
+.closeItems {
+  height: 0rem;
+  width: 0rem;
+}
+/* .navbar {
+  height: 100vh;
+  width: 5rem;
+}  */

@@ -1,0 +1,23 @@
+.cardProduct {
+  height: 21rem;
+  width: 16rem;
+  background-color: white;
+}
+
+.showMoreButton {
+  height: 2rem;
+  width: 76%;
+  background-color: #007fff;
+  margin-top: 1.4rem;
+}
+
+.toCartButton {
+  height: 2rem;
+  width: 54%;
+  background-color: #5bc65e;
+  margin-top: 0.4rem;
+}
+
+.DivImageCard {
+  background-color: #f7f7f7;
+}

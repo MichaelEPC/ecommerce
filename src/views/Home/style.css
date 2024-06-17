@@ -1,0 +1,66 @@
+.selectFilterHome {
+  height: 2.4rem;
+  min-width: 1rem;
+  background-color: white;
+  color: #808080;
+}
+
+.inputFilterHome {
+  height: 2.4rem;
+  min-width: 28rem;
+}
+
+.DivLupeHome {
+  height: 2.4rem;
+  width: 2.5rem;
+}
+
+.productsContainer {
+  height: calc(50rem + auto);
+  width: 96%;
+  margin-top: 0.4rem;
+}
+
+.cardsContainer {
+  min-height: 0rem;
+  background-color: white;
+}
+
+.pagination {
+  margin-top: 1rem;
+  height: 2.6rem;
+}
+
+.divLoader {
+  height: 45rem;
+  width: 100%;
+}
+
+.divLoaderText {
+  color: white;
+}
+
+.loader {
+  width: 20rem;
+  aspect-ratio: 1;
+  border-radius: 60%;
+  border: 0.2rem solid white;
+  background: #007fff;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  animation: l1 2s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+
+@keyframes l1 {
+  33% {
+    border-radius: 0;
+    border: 0.2rem solid white;
+    background: #007fff;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  66% {
+    border-radius: 0;
+    background: #dddddd;
+    border: 0.2rem solid white;
+    clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+  }
+}
