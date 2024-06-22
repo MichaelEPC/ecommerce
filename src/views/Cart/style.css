@@ -4,6 +4,21 @@
 }
 
 .OrderContainer {
-  height: 100rem;
+  min-height: calc(10rem + auto);
   width: 72%;
+}
+
+.buyDivContainer {
+  height: 14rem;
+  width: 30rem;
+}
+
+.buyCart {
+  height: 2.6rem;
+  width: 12rem;
+}
+
+.LoaderDivV2 {
+  height: 40rem;
+  width: 100%;
 }

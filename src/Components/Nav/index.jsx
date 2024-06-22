@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 import { AppContext } from "../../Context";
 
@@ -8,6 +8,7 @@ function Nav() {
   const [rotateButton, setRotateButton] = React.useState("rotate-90");
   const { currentPage, setCurrentPage } = React.useContext(AppContext);
 
+  const location = useLocation();
   const navigate = useNavigate();
 
   const toggleNav = () => {
@@ -30,6 +31,29 @@ function Nav() {
     }, 100);
   };
 
+  const verifyCurrentPage = () => {
+    switch (location.pathname) {
+      case "/home":
+        setCurrentPage(1);
+        break;
+
+      case "/cart":
+        setCurrentPage(2);
+        break;
+
+      case "/orders":
+        setCurrentPage(3);
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    verifyCurrentPage();
+  }, []);
+
   return (
     <>
       <nav
@@ -40,7 +64,7 @@ function Nav() {
             className={`items-cenxter flex rounded-lg bg-white p-1 ${navIsOpen ? "navbarHead" : "closeHeader"}`}
           >
             <div
-              className={`flex h-20 w-24 flex-col items-center justify-center rounded-lg bg-principal-blue transition-all duration-150 ${navIsOpen ? "h-16" : ""}`}
+              className={`flex w-24 flex-col items-center justify-center rounded-lg bg-principal-blue transition-all duration-150 ${navIsOpen ? "h-20" : "h-16"}`}
             >
               <p className="text-3xl font-bold text-white">TI</p>
             </div>
@@ -48,7 +72,7 @@ function Nav() {
               className={`${navIsOpen ? "ml-6 mt-2 flex items-center justify-center" : "hidden"}`}
             >
               <p
-                className={`transition-all duration-100 ${navIsOpen ? "text-2xl font-semibold text-text-color" : "hidden"}`}
+                className={`transition-all duration-100 ${navIsOpen ? "text-2xl font-semibold text-text-color" : "w-0"}`}
               >
                 Tech In.
               </p>
@@ -60,7 +84,6 @@ function Nav() {
               className={`NavItems border-t-2 border-ligh-gray ${currentPage == 1 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                setCurrentPage(1);
                 navigate("/home");
               }}
             >
@@ -89,7 +112,6 @@ function Nav() {
               className={`NavItems ${currentPage == 2 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                setCurrentPage(2);
                 navigate("/cart");
               }}
             >
@@ -117,7 +139,8 @@ function Nav() {
             <li
               className={`NavItems ${currentPage == 3 ? "NavitemsActive" : ""}`}
               onClick={() => {
-                toggleNav(3);
+                toggleNav();
+                navigate("/orders");
               }}
             >
               <div className="NavIconDiv flex items-center justify-center">

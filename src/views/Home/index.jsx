@@ -6,6 +6,7 @@ import CardProduct from "../../Components/CardProduct";
 import Pagination from "../../Components/Pagination";
 import "./style.css";
 import { numbersPagination } from "../../utils/index";
+import iconNoProducts from "../../img/iconWithoutProducts.png";
 
 function Home() {
   // UI States
@@ -137,20 +138,33 @@ function Home() {
             </div>
           )}
           <div
-            className={`${!loading ? "cardsContainer grid grid-cols-5 gap-2 p-4" : "hidden"}`}
+            className={`${!loading ? "cardsContainer grid grid-cols-5 gap-3 p-4" : "hidden"}`}
           >
-            {!loading &&
+            {!loading && listProducts.length === 0 ? (
+              <div className="NotProductsContainer absolute top-52 flex h-auto items-center rounded-2xl border-2 border-ligh-gray bg-white">
+                <img src={iconNoProducts} alt="" />
+                <div className="">
+                  <p className="text-2xl font-semibold">
+                    Not Products Found...
+                  </p>
+                  <p className="font-medium">Try again with other name </p>
+                </div>
+              </div>
+            ) : (
               listProducts?.map((product) => (
                 <CardProduct
                   key={product.id}
+                  id={product.id}
                   name={product.title}
                   img={product.image}
                   category={product.category}
                   price={product.price}
                   count={product.rating.count}
                   rating={product.rating.rate}
+                  desc={product.description}
                 />
-              ))}
+              ))
+            )}
           </div>
         </section>
         {!loading && (

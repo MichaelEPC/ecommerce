@@ -1,0 +1,28 @@
+.itemsCart {
+  height: 12rem;
+  width: 98%;
+}
+
+.itemsCartImage {
+  height: 10rem;
+  width: 12rem;
+}
+
+.itemsInfoDIv {
+  height: 100%;
+  width: 50rem;
+}
+
+.numberProductItem {
+  height: 2.4rem;
+  width: 4rem;
+}
+
+.deleteItemCart {
+  height: 2.4rem;
+  width: 4.2rem;
+}
+
+.deleteItemCart:hover {
+  text-decoration: underline;
+}

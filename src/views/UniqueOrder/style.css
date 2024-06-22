@@ -1,0 +1,10 @@
+.UniqueOrderMain {
+  height: calc(30rem + auto);
+  width: 50%;
+}
+
+.infoUniqueOrder {
+  height: 2.8rem;
+  width: 20rem;
+  background-color: white;
+}

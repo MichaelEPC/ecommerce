@@ -1,8 +1,9 @@
 import React from "react";
 import "./style.css";
 import starImg from "../../img/star-sm.png";
+import { addToCart } from "../../utils/localStorage";
 
-function CardProduct({ name, img, category, price, rating, count }) {
+function CardProduct({ id, name, img, category, price, rating, count, desc }) {
   return (
     <article className="cardProduct relative flex justify-center rounded-lg border-2 border-ligh-gray shadow-lg">
       <div className="flex w-full flex-col items-center">
@@ -14,7 +15,7 @@ function CardProduct({ name, img, category, price, rating, count }) {
         </div>
 
         <div className="mt-2 flex h-4 w-4/5 items-center justify-between">
-          <div className="rounded-e-lg bg-white p-1">
+          <div className="flex items-center justify-center rounded-e-lg border-2 border-principal-blue bg-white p-1">
             <p className="text-sm font-semibold text-principal-blue">
               {category}
             </p>
@@ -22,9 +23,9 @@ function CardProduct({ name, img, category, price, rating, count }) {
           <p className="text-base font-semibold text-green-500">{`US$ ${price}`}</p>
         </div>
 
-        <div className="mt-3 flex h-4 w-4/5 items-center justify-between">
+        <div className="mt-4 flex h-4 w-4/5 items-center justify-between">
           <div className="flex items-center justify-center rounded-lg">
-            <p className="text-base font-semibold text-yellow-500">
+            <p className="text-base font-semibold text-text-color">
               {`Reviews: ${count}`}
             </p>
           </div>
@@ -34,7 +35,23 @@ function CardProduct({ name, img, category, price, rating, count }) {
           </div>
         </div>
       </div>
-      <div className="absolute -right-2 -top-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-principal-blue">
+      <div
+        className="absolute -right-2 -top-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-principal-blue"
+        onClick={() => {
+          addToCart({
+            id: id,
+            title: name,
+            image: img,
+            category: category,
+            price: price,
+            rating: {
+              count: count,
+              rate: rating,
+            },
+            description: desc,
+          });
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="26"
