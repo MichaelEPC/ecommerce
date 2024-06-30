@@ -1,0 +1,30 @@
+.DetailContainer {
+  min-height: 28rem;
+  width: 62rem;
+}
+
+.optionsProductDetail {
+  height: 18rem;
+  width: 18rem;
+}
+
+.textProductDetail {
+  min-height: 14rem;
+  width: 40rem;
+}
+
+.numberProductDetail {
+  height: 2rem;
+  width: 4rem;
+}
+
+@media (max-width: 1280px) {
+  .DetailContainer {
+    min-height: 28rem;
+    width: 25.2rem;
+  }
+  .textProductDetail {
+    min-height: 8rem;
+    width: 14rem;
+  }
+}

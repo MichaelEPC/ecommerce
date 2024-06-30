@@ -1,0 +1,11 @@
+.containerSingIn {
+  height: 38rem;
+  width: 32rem;
+}
+
+@media (max-width: 520px) {
+  .containerSingIn {
+    height: 38rem;
+    width: 22rem;
+  }
+}

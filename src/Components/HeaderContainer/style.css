@@ -2,3 +2,25 @@ header {
   height: 4.2rem;
   width: calc(100% - 6rem);
 }
+
+.titleHeader {
+  left: 1.8rem;
+}
+
+@media (max-width: 770px) {
+  .titleHeader {
+    display: none;
+  }
+  .titleContact {
+    display: none;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 552px) {
+  header {
+    height: 4.2rem;
+    width: calc(100% + 1rem);
+  }
+}

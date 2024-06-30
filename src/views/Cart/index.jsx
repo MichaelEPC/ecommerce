@@ -1,36 +1,45 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import HeaderContainer from "../../Components/HeaderContainer";
 import Nav from "../../Components/Nav";
 import MainContainer from "../../Components/MainContainer";
 import ItemsCart from "../../Components/ItemsCart";
 import LoaderV2 from "../../Components/LoaderV2";
+import FooterContainer from "../../Components/FooterContainer";
+import NavMobile from "../../Components/NavMobile";
 import "./style.css";
-import { ProductInCart } from "./ProductInCart";
-import ManageOrders from "../Orders/ManageOrders";
+import ManageCart from "./ManageCart";
+import ManageCurrentUser from "../SingIn/ManageCurrrentUser";
+import ManageUsers from "../SingIn/ManageUsers";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Cart() {
   const [loading, setLoading] = React.useState(true);
-  const { productsInCart, putProductsIncart } = ProductInCart();
-  const { orders, putMyOrder } = ManageOrders();
+  const { cart, updateCart } = ManageCart();
+  const { currentUser, updateCurrentUser } = ManageCurrentUser();
+  const { users, updateUsers } = ManageUsers();
+
+  const navigate = useNavigate();
 
   const modifyAmount = (id, newAmount) => {
     id = parseInt(id);
-    const listCartModify = productsInCart.map((products) => {
+    const listCartModify = cart.map((products) => {
       products.id === id ? (products.amount = newAmount) : products;
       return products;
     });
-    putProductsIncart(listCartModify);
+    updateCart(listCartModify);
   };
 
   const deleteProduct = (id) => {
     id = parseInt(id);
-    const newListCast = productsInCart.filter((product) => product.id != id);
-    putProductsIncart(newListCast);
+    const newListCast = cart.filter((product) => product.id != id);
+    updateCart(newListCast);
   };
 
   const sumTotalPrice = () => {
     let sum = 0;
-    productsInCart.forEach((product) => {
+    cart.forEach((product) => {
       const amount = product.amount;
       sum += amount * parseFloat(product.price);
     });
@@ -39,7 +48,7 @@ function Cart() {
 
   const totalProducts = () => {
     let products = 0;
-    productsInCart.forEach((product) => {
+    cart.forEach((product) => {
       const amount = product.amount;
       products += parseInt(amount);
     });
@@ -68,29 +77,70 @@ function Cart() {
 
   const generateID = () => Date.now();
 
-  const sendToMyOrder = (listCart) => {
-    if (listCart == undefined || listCart == null) {
-      return "Error: something went wrong!...";
+  const notifySucessfull = () =>
+    toast.success("Successfully order!", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+
+  const notifyEmpty = (message) =>
+    toast.error(message, {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+
+  const sendToMyOrder = async () => {
+    if (currentUser === undefined || currentUser === null) {
+      navigate("/signin");
+      return;
     }
-    if (listCart.length == 0) {
-      return "Cart Empty!";
+    if (cart == undefined || cart == null) {
+      notifyEmpty("Something went wrong...");
+      return;
+    }
+    if (cart.length == 0) {
+      notifyEmpty("Cart is empty");
+      return;
     }
     const currentDate = new Date();
     const day = String(currentDate.getDate()).padStart(2, "0");
     const month = String(currentDate.getMonth() + 1).padStart(2, "0");
     const year = currentDate.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
-    const orderOBject = {
+    const newOrder = {
       id: generateID(),
       date: formattedDate,
-      orders: listCart,
+      orders: cart,
       state: randomState(),
       maxPrice: sumTotalPrice(),
       productsAmount: totalProducts(),
     };
-    let listOrders = orders;
-    listOrders.push(orderOBject);
-    putMyOrder(listOrders);
+    let userMod = currentUser;
+    userMod.orders.push(newOrder);
+    const newListUsers = users.filter((user) => {
+      if (user.id === userMod.id) {
+        user.orders = userMod.orders;
+      }
+      return true;
+    });
+    updateUsers(newListUsers);
+    updateCurrentUser(userMod);
+    updateCart([]);
+    notifySucessfull();
   };
 
   useEffect(() => {
@@ -103,8 +153,9 @@ function Cart() {
     <>
       <HeaderContainer></HeaderContainer>
       <Nav />
+      <NavMobile />
       <MainContainer>
-        <section className="cartContainer mt-2 flex">
+        <section className="cartContainer mt-2 flex flex-col items-center lg:flex-row lg:items-start">
           <div className="OrderContainer flex flex-col rounded-lg border-2 border-ligh-gray bg-white shadow-md">
             <div className="flex flex-col items-center border-b-2 border-ligh-gray p-2">
               <p className="ml-4 mt-2 self-start text-2xl font-bold text-principal-blue">
@@ -122,7 +173,7 @@ function Cart() {
             <div
               className={`${!loading ? "InfoOderContainer flex flex-col items-center justify-center p-4" : "hidden"}`}
             >
-              {productsInCart.length == 0 ? (
+              {cart.length == 0 ? (
                 <div className="text-lg font-semibold">
                   <div className="flex justify-center">
                     <p>Cart empty...</p>
@@ -130,7 +181,7 @@ function Cart() {
                   <p>add products to the cart</p>
                 </div>
               ) : (
-                productsInCart?.map((product) => (
+                cart?.map((product) => (
                   <ItemsCart
                     key={product.id}
                     id={product.id}
@@ -148,7 +199,7 @@ function Cart() {
             </div>
           </div>
 
-          <div className="buyDivContainer ml-10 flex flex-col items-center rounded-lg bg-white shadow-lg">
+          <div className="buyDivContainer mb-2 ml-10 mt-10 flex flex-col items-center rounded-lg bg-white shadow-lg lg:mt-0">
             <p className="mt-2 text-xl font-bold text-principal-blue">
               Payment
             </p>
@@ -166,8 +217,7 @@ function Cart() {
             <button
               className="buyCart mt-5 rounded-md bg-principal-blue text-xl font-bold text-white"
               onClick={() => {
-                sendToMyOrder(productsInCart);
-                putProductsIncart([]);
+                sendToMyOrder();
               }}
             >
               Buy
@@ -175,6 +225,10 @@ function Cart() {
           </div>
         </section>
       </MainContainer>
+      <section className="FooterContainer relative left-0 ml-4 flex items-center justify-center showNav:left-16">
+        <FooterContainer />
+      </section>
+      <ToastContainer limit={1} />
     </>
   );
 }

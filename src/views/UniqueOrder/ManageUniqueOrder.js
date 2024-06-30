@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 function ManageUniqueOrder() {
   const [uniqueOrder, setUniqueOrders] = React.useState({});
   useEffect(() => {
-    const res = JSON.parse(localStorage.getItem("techIncStorageUniqueOrder"));
+    let res = JSON.parse(localStorage.getItem("techIncStorageUniqueOrder"));
     try {
       if (res === undefined || res === null) {
         res = {};
@@ -11,7 +11,9 @@ function ManageUniqueOrder() {
       } else {
         setUniqueOrders(res);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
   const putUniqueOrder = (order) => {
     if (order == undefined || order == null) {

@@ -8,7 +8,7 @@ import ManageUniqueOrder from "./ManageUniqueOrder";
 import { useNavigate } from "react-router-dom";
 
 function UniqueOrders() {
-  const { uniqueOrder, putUniqueOrder } = ManageUniqueOrder();
+  const { uniqueOrder } = ManageUniqueOrder();
   const navigate = useNavigate();
 
   return (
@@ -41,7 +41,7 @@ function UniqueOrders() {
             ))}
           </div>
           <div
-            className="absolute left-0 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-principal-blue"
+            className="absolute left-2 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-principal-blue"
             onClick={() => navigate("/orders")}
           >
             <svg

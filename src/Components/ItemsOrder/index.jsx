@@ -41,26 +41,25 @@ function ItemsOrder({
     setLoading(false);
   }, []);
 
-  console.log(image);
   return (
     <article
-      className={`${!loading ? "OrderItem relative mt-2 cursor-pointer rounded-xl" : "hidden"}`}
+      className={`${!loading ? "OrderItem relative mt-2 flex cursor-pointer flex-col rounded-xl shadow-sm" : "hidden"}`}
       onClick={() => setOrder(id)}
     >
       <div className="relative flex h-full rounded-lg border-2 border-ligh-gray bg-white">
         <div className="ml-2 flex h-full w-20 items-center justify-center border-r-2 border-ligh-gray pr-2">
           <img src={img} alt={img} />
         </div>
-        <p className="absolute -top-2 right-0 bg-transparent p-1 text-2xl font-semibold">{`${date}`}</p>
-        <div className="ml-1 flex h-full w-3/4 flex-col items-center justify-center">
-          <div className="ml-2 mt-4 flex w-full items-center justify-between">
-            <p className="text-lg font-normal">
+        <p className="absolute -top-2 right-0 bg-transparent p-1 text-2xl font-semibold text-text-color">{`${date}`}</p>
+        <div className="ml-1 mt-2 flex h-full w-full flex-col items-center justify-center p-1">
+          <div className="ordersItemContent ml-2 mt-4 flex w-full flex-col items-center justify-between lg:flex-row">
+            <p className="text-lg font-normal text-principal-blue">
               Total Products:
-              <span className="ml-2 text-lg font-medium">{`${totalProducts}`}</span>
+              <span className="ml-2 text-lg font-medium text-text-color">{`${totalProducts}`}</span>
             </p>
-            <p className="text-lg font-normal">
+            <p className="text-lg font-normal text-principal-blue">
               Total Price:
-              <span className="ml-2 text-lg font-medium">{`$${totalPrice}`}</span>
+              <span className="ml-2 text-lg font-medium text-text-color">{`$${totalPrice}`}</span>
             </p>
             <div className="flex">
               <p className="text-lg font-semibold">

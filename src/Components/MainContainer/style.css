@@ -4,3 +4,10 @@
   width: calc(100% - 6rem);
   background-color: #e3e6e6;
 }
+
+@media (max-width: 552px) {
+  .mainContainer {
+    min-height: calc(100vh - 6rem);
+    width: calc(100% + 1.2rem);
+  }
+}

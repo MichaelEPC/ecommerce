@@ -1,4 +1,11 @@
 .OrdersMain {
   height: calc(8rem + auto);
-  width: 40%;
+  width: 58%;
+}
+
+@media (max-width: 540px) {
+  .OrdersMain {
+    height: calc(8rem + auto);
+    width: 80%;
+  }
 }

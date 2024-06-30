@@ -5,7 +5,7 @@ import { AppContext } from "../../Context";
 import ManageCurrentUser from "../../views/SingIn/ManageCurrrentUser";
 import ManageCart from "../../views/Cart/ManageCart";
 
-function Nav() {
+function NavMobile() {
   const [navIsOpen, setNavIsOpen] = React.useState(false);
   const [rotateButton, setRotateButton] = React.useState("rotate-90");
   const { currentPage, setCurrentPage } = React.useContext(AppContext);
@@ -69,7 +69,7 @@ function Nav() {
   return (
     <>
       <nav
-        className={`fixed top-0 z-20 hidden flex-col rounded-lg border-r-2 border-ligh-gray bg-white transition-all duration-200 showNav:flex ${navIsOpen ? "navbar" : "close"}`}
+        className={`fixed -left-24 top-0 z-20 flex-col rounded-lg border-r-2 border-ligh-gray bg-white transition-all duration-200 showNav:hidden ${navIsOpen ? "navbar left-0" : "close"}`}
       >
         <div>
           <div
@@ -243,7 +243,7 @@ function Nav() {
         </ul>
 
         <div
-          className={`absolute top-96 flex h-10 w-10 cursor-pointer flex-col items-center justify-center rounded-full bg-principal-blue transition-all duration-150 ${navIsOpen ? "left-56" : "left-20"} `}
+          className={`absolute top-96 flex h-14 w-14 cursor-pointer flex-col items-center justify-center rounded-full bg-principal-blue transition-all duration-150 ${navIsOpen ? "left-56" : "left-20"} `}
           onClick={() => {
             toggleNavButton();
           }}
@@ -253,8 +253,8 @@ function Nav() {
               rotateBut();
             }}
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="44"
+            height="32"
             viewBox="0 0 24 24"
             className={`transform fill-white ${rotateButton}`}
           >
@@ -267,4 +267,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default NavMobile;

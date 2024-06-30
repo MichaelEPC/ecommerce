@@ -1,0 +1,25 @@
+.infoAccount {
+  height: 16rem;
+  width: 22rem;
+}
+
+.editAccountForm {
+  height: 26rem;
+  width: 36rem;
+}
+
+.iconVisibility {
+  bottom: 8rem;
+}
+
+/* Responsive */
+
+@media (max-width: 755px) {
+  .editAccountForm {
+    height: 26rem;
+    width: 22rem;
+  }
+  .iconVisibility {
+    bottom: 5rem;
+  }
+}

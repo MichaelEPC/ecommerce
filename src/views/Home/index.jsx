@@ -4,15 +4,17 @@ import MainContainer from "../../Components/MainContainer";
 import HeaderContainer from "../../Components/HeaderContainer";
 import CardProduct from "../../Components/CardProduct";
 import Pagination from "../../Components/Pagination";
+import FooterContainer from "../../Components/FooterContainer";
+import NavMobile from "../../Components/NavMobile";
 import "./style.css";
-import { numbersPagination } from "../../utils/index";
-import iconNoProducts from "../../img/iconWithoutProducts.png";
+import ManageProductDetail from "../ProductDetail/ManageProductDetail";
 
 function Home() {
   // UI States
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState("");
+  const [error, setError] = React.useState(false);
+  const { putProductDetail } = ManageProductDetail();
 
   // Pagination
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -34,7 +36,7 @@ function Home() {
         setLoading(false);
       }, 800);
     } catch (error) {
-      setError(error);
+      setError(true);
       setLoading(false);
       console.error("Error getting the products, try later." + error);
     }
@@ -75,6 +77,11 @@ function Home() {
     }
   };
 
+  const fillProductDetail = (id) => {
+    const listProduct = products.filter((product) => product.id === id);
+    putProductDetail(listProduct[0]);
+  };
+
   useEffect(() => {
     fecthProducts();
   }, []);
@@ -85,7 +92,7 @@ function Home() {
 
   return (
     <>
-      <HeaderContainer title={"Products"}>
+      <HeaderContainer>
         <div className="flex w-full items-center justify-center">
           <div className="flex w-auto items-center justify-center">
             <select
@@ -96,10 +103,10 @@ function Home() {
               onChange={handleChangeSelect}
             >
               <option value="all">All</option>
-              <option value="men's clothing">Men's clothing</option>
+              <option value="men's clothing">Mens clothing</option>
               <option value="jewelery">Jewelery</option>
               <option value="electronics">Electronics</option>
-              <option value="women's clothing">Women's clothing</option>
+              <option value="women's clothing">Womens clothing</option>
             </select>
             <input
               type="text"
@@ -126,6 +133,7 @@ function Home() {
         </div>
       </HeaderContainer>
       <Nav />
+      <NavMobile />
       <MainContainer>
         <section className="productsContainer mt-1 flex justify-center rounded-lg">
           {loading && (
@@ -138,18 +146,27 @@ function Home() {
             </div>
           )}
           <div
-            className={`${!loading ? "cardsContainer grid grid-cols-5 gap-3 p-4" : "hidden"}`}
+            className={`${!loading ? "cardsContainer grid grid-cols-1 gap-3 mb:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5" : "hidden"} ${!(listProducts.length === 0) ? "p-4" : "p-0"}`}
           >
-            {!loading && listProducts.length === 0 ? (
-              <div className="NotProductsContainer absolute top-52 flex h-auto items-center rounded-2xl border-2 border-ligh-gray bg-white">
-                <img src={iconNoProducts} alt="" />
-                <div className="">
+            {error && (
+              <div className="absolute left-0 top-0 mt-2 flex h-auto w-full items-center justify-center">
+                <div className="flex h-auto w-1/2 items-center justify-center">
                   <p className="text-2xl font-semibold">
-                    Not Products Found...
+                    Error, please come back later...
                   </p>
-                  <p className="font-medium">Try again with other name </p>
                 </div>
               </div>
+            )}
+            {!loading && !error && listProducts.length === 0 ? (
+              <>
+                <div className="absolute left-0 top-0 mt-2 flex h-auto w-full items-center justify-center">
+                  <div className="flex h-auto w-1/2 items-center justify-center">
+                    <p className="text-2xl font-semibold">
+                      Not products found with that name
+                    </p>
+                  </div>
+                </div>
+              </>
             ) : (
               listProducts?.map((product) => (
                 <CardProduct
@@ -162,12 +179,13 @@ function Home() {
                   count={product.rating.count}
                   rating={product.rating.rate}
                   desc={product.description}
+                  fillProductDetail={fillProductDetail}
                 />
               ))
             )}
           </div>
         </section>
-        {!loading && (
+        {!loading && !error && listProducts.length != 0 && (
           <Pagination
             arrayProducts={products}
             maxProducts={15}
@@ -176,6 +194,9 @@ function Home() {
           />
         )}
       </MainContainer>
+      <section className="FooterContainer relative left-0 ml-4 flex items-center justify-center showNav:left-16">
+        <FooterContainer />
+      </section>
     </>
   );
 }

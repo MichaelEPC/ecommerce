@@ -1,16 +1,49 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 import starImg from "../../img/star-sm.png";
-import { addToCart } from "../../utils/localStorage";
+import { addToCart } from "./addToCart";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function CardProduct({ id, name, img, category, price, rating, count, desc }) {
+function CardProduct({
+  id,
+  name,
+  img,
+  category,
+  price,
+  rating,
+  count,
+  desc,
+  fillProductDetail,
+}) {
+  const notifySucessfull = () =>
+    toast.success("added to cart!", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+
+  const navigate = useNavigate();
+
   return (
     <article className="cardProduct relative flex justify-center rounded-lg border-2 border-ligh-gray shadow-lg">
-      <div className="flex w-full flex-col items-center">
+      <div
+        className="flex w-full flex-col items-center"
+        onClick={async () => {
+          await fillProductDetail(id);
+          navigate(`/product-detail/${id}`);
+        }}
+      >
         <div className="flex w-full cursor-pointer flex-col items-center">
           <p className="mb-1 mt-4 truncate text-base font-bold text-text-color">{`${name.substring(0, 20)}...`}</p>
           <div className="DivImageCard flex h-fit w-4/5 items-center justify-center rounded-lg border-2 border-ligh-gray p-1">
-            <img src={img} alt={img} className="h-52 w-52 object-cover p-2" />
+            <img src={img} alt={img} className="h-52 w-52 object-contain p-2" />
           </div>
         </div>
 
@@ -50,6 +83,7 @@ function CardProduct({ id, name, img, category, price, rating, count, desc }) {
             },
             description: desc,
           });
+          notifySucessfull();
         }}
       >
         <svg
@@ -65,6 +99,7 @@ function CardProduct({ id, name, img, category, price, rating, count, desc }) {
           <path d="M10 17h8a1 1 0 0 0 .93-.64L21.76 9h-2.14l-2.31 6h-6.64L6.18 4.23A2 2 0 0 0 4.33 3H2v2h2.33l4.75 11.38A1 1 0 0 0 10 17z"></path>
         </svg>
       </div>
+      <ToastContainer limit={3} />
     </article>
   );
 }

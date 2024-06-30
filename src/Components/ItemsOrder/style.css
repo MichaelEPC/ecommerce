@@ -1,4 +1,10 @@
 .OrderItem {
-  height: 7.4rem;
-  width: 44rem;
+  min-height: calc(7.4rem + auto);
+  width: 100%;
+}
+
+@media (max-width: 682px) {
+  .OrderItem {
+    height: 7.4rem;
+  }
 }

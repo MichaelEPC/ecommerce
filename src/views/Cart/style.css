@@ -22,3 +22,26 @@
   height: 40rem;
   width: 100%;
 }
+
+/* Responsive */
+
+@media (max-width: 1280px) {
+  .OrderContainer {
+    min-height: calc(10rem + auto);
+    width: 98%;
+  }
+}
+
+@media (max-width: 700px) {
+  .buyDivContainer {
+    height: 14rem;
+    width: 20rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .buyDivContainer {
+    height: 14rem;
+    width: 14rem;
+  }
+}

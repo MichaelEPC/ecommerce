@@ -24,19 +24,22 @@ function ItemsCart({
       <div className="itemsInfoDIv flex w-full flex-col">
         <div className="flex justify-between">
           <p className="text-2xl font-semibold">{name}</p>
-          <p className="mr-2 mt-2 text-2xl font-semibold">{`$${price}`}</p>
+          <p className="mr-2 mt-2 text-2xl font-semibold text-text-color">{`$${price}`}</p>
         </div>
         <div className="flex flex-col">
-          <p className="font-medium">{`Category: ${category}`}</p>
+          <p className="font-medium text-principal-blue">
+            {`Category: `}{" "}
+            <span className="font-bold text-text-color">{`${category}`}</span>
+          </p>
           <div className="flex items-center">
-            <p className="mr-2 font-medium">Rating:</p>
+            <p className="mr-2 font-medium text-principal-blue">Rating:</p>
+            <p className="font-bold text-text-color">{stars}</p>
             <img className="h-4 w-4" src={starImage} alt={starImage} />
-            <p className="font-semibold">{stars}</p>
           </div>
         </div>
         <div className="flex h-full w-60 items-center justify-between">
           <div className="mb-1 flex w-52 items-center justify-around self-end">
-            <p className="font-semibold">Amount:</p>
+            <p className="font-semibold text-text-color">Amount:</p>
             <select
               className="numberProductItem rounded-lg border-2 border-ligh-gray p-2 font-normal shadow-md outline-none"
               name=""
