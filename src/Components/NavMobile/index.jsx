@@ -37,24 +37,24 @@ function NavMobile() {
 
   const logOut = async () => {
     await updateCurrentUser({});
-    navigate("/signin");
+    navigate("/ecomerce-tech//signin");
   };
 
   const verifyCurrentPage = () => {
     switch (location.pathname) {
-      case "/":
+      case "/ecomerce-tech":
         setCurrentPage(1);
         break;
 
-      case "/cart":
+      case "/ecomerce-tech/cart":
         setCurrentPage(2);
         break;
 
-      case "/orders":
+      case "/ecomerce-tech/orders":
         setCurrentPage(3);
         break;
 
-      case "/account-configuration":
+      case "/ecomerce-tech/account-configuration":
         setCurrentPage(4);
         break;
 
@@ -96,7 +96,7 @@ function NavMobile() {
               className={`NavItems border-t-2 border-ligh-gray ${currentPage == 1 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                navigate("/");
+                navigate("/ecomerce-tech");
               }}
             >
               <div className="NavIconDiv flex items-center justify-center">
@@ -124,7 +124,7 @@ function NavMobile() {
               className={`NavItems ${currentPage == 2 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                navigate("/cart");
+                navigate("/ecomerce-tech/cart");
               }}
             >
               <div className="NavIconDiv relative flex items-center justify-center">
@@ -157,7 +157,7 @@ function NavMobile() {
               className={`NavItems ${currentPage == 3 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                navigate("/orders");
+                navigate("/ecomerce-tech/orders");
               }}
             >
               <div className="NavIconDiv flex items-center justify-center">
@@ -188,9 +188,9 @@ function NavMobile() {
             onClick={() => {
               toggleNav();
               if ("email" in currentUser) {
-                navigate("/account-configuration");
+                navigate("/ecomerce-tech/account-configuration");
               } else {
-                navigate("/signin");
+                navigate("/ecomerce-tech/signin");
               }
             }}
           >

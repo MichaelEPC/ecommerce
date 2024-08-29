@@ -37,7 +37,7 @@ function CardProduct({
         className="flex w-full flex-col items-center"
         onClick={async () => {
           await fillProductDetail(id);
-          navigate(`/product-detail/${id}`);
+          navigate(`/ecomerce-tech/product-detail/${id}`);
         }}
       >
         <div className="flex w-full cursor-pointer flex-col items-center">

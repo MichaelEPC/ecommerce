@@ -9,7 +9,7 @@ function Nav() {
         <div className="ml-2 flex h-12 w-14 cursor-pointer items-center justify-center rounded-lg bg-principal-blue">
           <p
             className="text-lg font-bold text-white"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/ecomerce-tech")}
           >
             TI
           </p>
@@ -17,13 +17,13 @@ function Nav() {
         <ul className="flex items-center justify-between">
           <li
             className="mr-4 cursor-pointer font-semibold text-text-color"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/ecomerce-tech")}
           >
             Home
           </li>
           <li
             className="mr-2 cursor-pointer font-semibold text-text-color"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/ecomerce-tech/signup")}
           >
             Sign up
           </li>

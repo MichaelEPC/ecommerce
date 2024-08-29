@@ -105,7 +105,7 @@ function Cart() {
 
   const sendToMyOrder = async () => {
     if (currentUser === undefined || currentUser === null) {
-      navigate("/signin");
+      navigate("/ecomerce-tech/signin");
       return;
     }
     if (cart == undefined || cart == null) {

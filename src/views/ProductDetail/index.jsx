@@ -20,7 +20,7 @@ function ProductDetail() {
       <Nav />
       <NavMobile />
       <MainContainer>
-        <div className="pd:flex-row pd:items-start mt-28 flex h-full w-11/12 flex-col items-center justify-center">
+        <div className="mt-28 flex h-full w-11/12 flex-col items-center justify-center pd:flex-row pd:items-start">
           <div className="DetailContainer flex flex-col rounded-lg border-2 border-ligh-gray bg-white shadow-md xl:flex-row">
             <div className="ml-4 flex h-full w-96 justify-center border-r-2 border-ligh-gray pr-2">
               <img
@@ -90,14 +90,14 @@ function ProductDetail() {
                 className="mt-6 w-40 rounded-lg border-2 border-white bg-principal-blue p-2 font-semibold text-white"
                 onClick={async () => {
                   await addToCart(product, amount);
-                  navigate("/cart");
+                  navigate("/ecomerce-tech/cart");
                 }}
               >
                 Add to cart
               </button>
               <button
                 className="mt-2 w-40 rounded-2xl border-2 border-text-color bg-white p-2 font-semibold text-text-color"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/ecomerce-tech")}
               >
                 See more products
               </button>

@@ -46,7 +46,7 @@ function Singup() {
       },
     ];
     await updateUsers(userList);
-    navigate("/signin");
+    navigate("/ecomerce-tech/signin");
   };
   return (
     <>
@@ -54,7 +54,7 @@ function Singup() {
         <section className="containerSingIn m-12 flex flex-col items-center rounded-lg border-2 border-ligh-gray bg-white shadow-md">
           <div
             className="mt-2 flex h-20 w-20 cursor-pointer items-center justify-center rounded-lg bg-principal-blue"
-            onClick={() => navigate("/signin")}
+            onClick={() => navigate("/ecomerce-tech/signin")}
           >
             <p className="cursor-default text-2xl font-bold text-white">TI</p>
           </div>

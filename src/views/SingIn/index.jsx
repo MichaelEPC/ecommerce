@@ -40,7 +40,7 @@ function SignIn() {
     });
     if (user.length != 0) {
       updateCurrentUser(user[0]);
-      navigate("/");
+      navigate("/ecomerce-tech");
       return;
     }
     notifyWarnings();
@@ -92,7 +92,7 @@ function SignIn() {
             ¿Don´t have an account?
             <span
               className="ml-1 cursor-pointer font-semibold text-principal-blue underline"
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate("/ecomerce-tech/signup")}
             >
               create one
             </span>
