@@ -47,24 +47,24 @@ function ItemsOrder({
       onClick={() => setOrder(id)}
     >
       <div className="relative flex h-full rounded-lg border-2 border-ligh-gray bg-white">
-        <div className="ml-2 flex h-full w-20 items-center justify-center border-r-2 border-ligh-gray pr-2">
-          <img src={img} alt={img} />
+        <div className="ml-2 flex h-20 w-20 items-center justify-center border-r-2 border-ligh-gray pr-2">
+          <img className="h-full w-full" src={img} alt={img} />
         </div>
         <p className="absolute -top-2 right-0 bg-transparent p-1 text-2xl font-semibold text-text-color">{`${date}`}</p>
-        <div className="ml-1 mt-2 flex h-full w-full flex-col items-center justify-center p-1">
-          <div className="ordersItemContent ml-2 mt-4 flex w-full flex-col items-center justify-between lg:flex-row">
-            <p className="text-lg font-normal text-principal-blue">
+        <div className="ml-1 mt-2 flex h-full w-full flex-col items-center justify-center p-2">
+          <div className="ordersItemContent ml-2 mt-4 flex w-full flex-col items-center justify-between md:flex-row">
+            <p className="text-lg font-semibold">
               Total Products:
-              <span className="ml-2 text-lg font-medium text-text-color">{`${totalProducts}`}</span>
+              <span className="ml-2 text-lg text-text-color">{`${totalProducts}`}</span>
             </p>
-            <p className="text-lg font-normal text-principal-blue">
+            <p className="text-lg font-semibold">
               Total Price:
-              <span className="ml-2 text-lg font-medium text-text-color">{`$${totalPrice}`}</span>
+              <span className="ml-2 text-lg text-text-color">{`$${totalPrice}`}</span>
             </p>
             <div className="flex">
               <p className="text-lg font-semibold">
                 <span
-                  className={`ml-2 text-lg font-semibold ${classTextState}`}
+                  className={`text-md ml-2 font-semibold ${classTextState}`}
                 >{`${state}`}</span>
               </p>
               <img className="ml-2" src={image} alt={image} />

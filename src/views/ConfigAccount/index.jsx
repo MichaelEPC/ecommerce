@@ -108,27 +108,29 @@ function ConfigAccount() {
       <NavMobile />
       <MainContainer>
         <section className="mt-14 flex h-full w-3/6 flex-col items-center justify-around 2xl:flex-row">
-          <div className="infoAccount mt-4 flex flex-col items-center rounded-lg border-2 border-ligh-gray bg-white shadow-md">
+          <div className="infoAccount mt-4 flex flex-col items-center rounded-lg bg-white shadow-md ring-4 ring-ligh-gray 2xl:mr-10">
             <div className="flex w-full flex-col items-center justify-center border-b-2 border-ligh-gray">
-              <p className="text-lg font-semibold text-principal-blue">
+              <p className="text-lg font-semibold text-text-color">
                 Welcome
-                <span className="text-text-color">{` ${currentUser.name} `}</span>
+                <span className="text-principal-blue">{` ${currentUser.name} `}</span>
                 to
               </p>
-              <p className="text-lg font-semibold text-principal-blue">{`settings account`}</p>
+              <p className="text-lg font-semibold text-text-color">{`settings account`}</p>
             </div>
-            <button
-              className="mt-10 h-10 w-28 rounded-lg bg-orange-400 p-2 font-semibold text-white"
-              onClick={() => logOut()}
-            >
-              Log out
-            </button>
-            <button
-              className="mt-4 rounded-lg bg-red-500 p-4 font-semibold text-white"
-              onClick={() => deleteAccount()}
-            >
-              Delete account
-            </button>
+            <div className="mt-10 flex items-center">
+              <button
+                className="bg-red mr-2 h-10 w-28 rounded-lg bg-red-500 p-2 font-semibold text-white"
+                onClick={() => logOut()}
+              >
+                Log out
+              </button>
+              <button
+                className="rounded-lg bg-red-500 p-2 font-semibold text-white"
+                onClick={() => deleteAccount()}
+              >
+                Delete account
+              </button>
+            </div>
           </div>
           <form
             className="editAccountForm relative mt-4 flex flex-col items-center rounded-lg border-2 border-ligh-gray bg-white shadow-md"

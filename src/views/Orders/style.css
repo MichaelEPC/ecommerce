@@ -1,6 +1,27 @@
 .OrdersMain {
   height: calc(8rem + auto);
-  width: 58%;
+  width: 48%;
+}
+
+@media (max-width: 1410px) {
+  .OrdersMain {
+    height: calc(8rem + auto);
+    width: 60%;
+  }
+}
+
+@media (max-width: 1175px) {
+  .OrdersMain {
+    height: calc(8rem + auto);
+    width: 90%;
+  }
+}
+
+@media (max-width: 840px) {
+  .OrdersMain {
+    height: calc(8rem + auto);
+    width: 90%;
+  }
 }
 
 @media (max-width: 540px) {

@@ -7,7 +7,6 @@ import SignIn from "../views/SingIn";
 import Singup from "../views/SingUp";
 import ConfigAccount from "../views/ConfigAccount";
 import ProductDetail from "../views/ProductDetail";
-import "./App.css";
 
 const AppRoutes = () => {
   let routes = useRoutes([
