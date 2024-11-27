@@ -90,14 +90,14 @@ function ProductDetail() {
                 className="mt-6 w-40 rounded-lg border-2 border-white bg-principal-blue p-2 font-semibold text-white"
                 onClick={async () => {
                   await addToCart(product, amount);
-                  navigate("/ecomerce-tech/cart");
+                  navigate("/cart");
                 }}
               >
                 Add to cart
               </button>
               <button
                 className="mt-2 w-40 rounded-2xl border-2 border-text-color bg-white p-2 font-semibold text-text-color"
-                onClick={() => navigate("/ecomerce-tech")}
+                onClick={() => navigate("/")}
               >
                 See more products
               </button>

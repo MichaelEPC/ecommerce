@@ -10,17 +10,17 @@ import ProductDetail from "../views/ProductDetail";
 
 const AppRoutes = () => {
   let routes = useRoutes([
-    { path: "/ecomerce-tech", element: <Home /> },
-    { path: "/ecomerce-tech/signin", element: <SignIn /> },
-    { path: "/ecomerce-tech/signup", element: <Singup /> },
-    { path: "/ecomerce-tech/cart", element: <Cart /> },
-    { path: "/ecomerce-tech/orders", element: <Orders /> },
-    { path: "/ecomerce-tech/order/:id", element: <UniqueOrders /> },
+    { path: "/", element: <Home /> },
+    { path: "/signin", element: <SignIn /> },
+    { path: "/signup", element: <Singup /> },
+    { path: "/cart", element: <Cart /> },
+    { path: "/orders", element: <Orders /> },
+    { path: "/order/:id", element: <UniqueOrders /> },
     {
-      path: "/ecomerce-tech/account-configuration",
+      path: "/account-configuration",
       element: <ConfigAccount />,
     },
-    { path: "/ecomerce-tech/product-detail/:id", element: <ProductDetail /> },
+    { path: "/product-detail/:id", element: <ProductDetail /> },
   ]);
   return routes;
 };

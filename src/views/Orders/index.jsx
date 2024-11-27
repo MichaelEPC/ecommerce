@@ -37,7 +37,7 @@ function Orders() {
   const setOrder = (id) => {
     const orderSelected = currentUser.orders?.filter((order) => order.id == id);
     putUniqueOrder(orderSelected[0]);
-    navigate(`/ecomerce-tech/order/${orderSelected[0].id}`);
+    navigate(`/order/${orderSelected[0].id}`);
   };
 
   return (
@@ -58,7 +58,7 @@ function Orders() {
                   ¡Make your first order!,{" "}
                   <span
                     className="cursor-pointer text-principal-blue underline"
-                    onClick={() => navigate("/ecomerce-tech")}
+                    onClick={() => navigate("/")}
                   >
                     buy products
                   </span>

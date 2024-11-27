@@ -42,7 +42,7 @@ function UniqueOrders() {
           </div>
           <div
             className="absolute left-2 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-principal-blue"
-            onClick={() => navigate("/ecomerce-tech/orders")}
+            onClick={() => navigate("/orders")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

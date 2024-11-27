@@ -37,7 +37,7 @@ function Nav() {
 
   const logOut = async () => {
     await updateCurrentUser({});
-    navigate("/ecomerce-tech/signin");
+    navigate("/signin");
   };
 
   const verifyCurrentPage = () => {
@@ -46,15 +46,15 @@ function Nav() {
         setCurrentPage(1);
         break;
 
-      case "/ecomerce-tech/cart":
+      case "/cart":
         setCurrentPage(2);
         break;
 
-      case "/ecomerce-tech/orders":
+      case "/orders":
         setCurrentPage(3);
         break;
 
-      case "/ecomerce-tech/account-configuration":
+      case "/account-configuration":
         setCurrentPage(4);
         break;
 
@@ -96,7 +96,7 @@ function Nav() {
               className={`NavItems border-t-2 border-ligh-gray ${currentPage == 1 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                navigate("/ecomerce-tech");
+                navigate("/");
               }}
             >
               <div className="NavIconDiv flex items-center justify-center">
@@ -124,7 +124,7 @@ function Nav() {
               className={`NavItems ${currentPage == 2 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                navigate("/ecomerce-tech/cart");
+                navigate("/cart");
               }}
             >
               <div className="NavIconDiv relative flex items-center justify-center">
@@ -157,7 +157,7 @@ function Nav() {
               className={`NavItems ${currentPage == 3 ? "NavitemsActive" : ""}`}
               onClick={() => {
                 toggleNav();
-                navigate("/ecomerce-tech/orders");
+                navigate("/orders");
               }}
             >
               <div className="NavIconDiv flex items-center justify-center">
@@ -188,9 +188,9 @@ function Nav() {
             onClick={() => {
               toggleNav();
               if ("email" in currentUser) {
-                navigate("/ecomerce-tech/account-configuration");
+                navigate("/account-configuration");
               } else {
-                navigate("/ecomerce-tech/signin");
+                navigate("/signin");
               }
             }}
           >

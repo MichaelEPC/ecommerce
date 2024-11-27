@@ -47,14 +47,14 @@ function ConfigAccount() {
 
   const logOut = async () => {
     await updateCurrentUser({});
-    navigate("/ecomerce-tech/signin");
+    navigate("/signin");
   };
 
   const deleteAccount = async () => {
     const newListUsers = users.filter((user) => user.id != currentUser.id);
     await updateCurrentUser({});
     await updateUsers(newListUsers);
-    navigate("/ecomerce-tech/signin");
+    navigate("/signin");
   };
 
   const handleSubmit = (e) => {
