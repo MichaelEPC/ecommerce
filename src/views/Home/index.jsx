@@ -116,7 +116,7 @@ function Home() {
               onKeyDownCapture={searchProducts}
             />
             <div
-              className="DivLupeHome flex cursor-pointer items-center justify-center rounded-r-2xl border-2 border-principal-blue bg-white"
+              className="DivLupeHome cursor-pointer items-center justify-center rounded-r-2xl border-2 border-principal-blue bg-white"
               onClick={() => searchProducts(undefined, true)}
             >
               <svg

@@ -13,6 +13,7 @@
 .DivLupeHome {
   height: 2.4rem;
   width: 2.5rem;
+  display: flex;
 }
 
 .productsContainer {
@@ -91,13 +92,16 @@
 @media (max-width: 520px) {
   .inputFilterHome {
     height: 2.4rem;
-    min-width: 2rem;
+    width: 2rem;
   }
 }
 
-@media (max-width: 430px) {
-  .inputFilterHome {
+@media (max-width: 400px) {
+  .DivLupeHome {
+    display: none;
+  }
+  .selectFilterHome {
     height: 2.4rem;
-    min-width: 0.1rem;
+    width: 5rem;
   }
 }
