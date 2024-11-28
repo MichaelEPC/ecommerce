@@ -18,7 +18,18 @@
   width: 4rem;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1101px) {
+  .DetailContainer {
+    min-height: 28rem;
+    width: 25.2rem;
+  }
+  .textProductDetail {
+    min-height: 8rem;
+    width: 14rem;
+  }
+}
+
+@media (max-width: 1101spx) {
   .DetailContainer {
     min-height: 28rem;
     width: 25.2rem;

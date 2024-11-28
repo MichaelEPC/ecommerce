@@ -21,7 +21,7 @@ function ProductDetail() {
       <NavMobile />
       <MainContainer>
         <div className="mt-28 flex h-full w-11/12 flex-col items-center justify-center pd:flex-row pd:items-start">
-          <div className="DetailContainer flex flex-col rounded-lg border-2 border-ligh-gray bg-white shadow-md xl:flex-row">
+          <div className="DetailContainer closed:flex-row flex flex-col rounded-lg border-2 border-ligh-gray bg-white shadow-md">
             <div className="ml-4 flex h-full w-96 justify-center border-r-2 border-ligh-gray pr-2">
               <img
                 className="w-96 object-contain"
@@ -55,12 +55,12 @@ function ProductDetail() {
                   {product.description}
                 </p>
               </div>
-              <p className="text-2xl font-semibold text-principal-blue underline">
+              <p className="mb-2 mt-2 text-2xl font-semibold text-principal-blue underline">
                 Available
               </p>
             </div>
           </div>
-          <div className="optionsProductDetail ml-4 rounded-lg border-2 border-ligh-gray bg-white shadow-md">
+          <div className="optionsProductDetail mb-2 ml-4 mt-2 rounded-lg border-2 border-ligh-gray bg-white shadow-md">
             <div className="h-12 w-full border-b-2 border-ligh-gray">
               <p className="ml-4 mt-2 text-2xl font-semibold">
                 {`$${product.price} `}

@@ -17,3 +17,66 @@
   height: 100%;
   width: 3rem;
 }
+
+@media (max-width: 900px) {
+  .ItemOrderContainer {
+    height: 4.2rem;
+    width: 40rem;
+    padding-right: 0.6rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .ItemOrderContainer {
+    height: 4.2rem;
+    width: 39rem;
+  }
+  .nameUniqueOrder {
+    height: 100%;
+    width: 20rem;
+  }
+}
+
+@media (max-width: 7200px) {
+  .ItemOrderContainer {
+    height: 4.2rem;
+    width: 30rem;
+  }
+  .nameUniqueOrder {
+    height: 100%;
+    width: 20rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .ItemOrderContainer {
+    height: 4.2rem;
+    width: 28rem;
+  }
+  .nameUniqueOrder {
+    height: 100%;
+    width: 16rem;
+  }
+}
+
+@media (max-width: 442px) {
+  .ItemOrderContainer {
+    height: 4.2rem;
+    width: 25rem;
+  }
+  .nameUniqueOrder {
+    height: 100%;
+    width: 12rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .ItemOrderContainer {
+    height: 4.2rem;
+    width: 22.4rem;
+  }
+  .nameUniqueOrder {
+    height: 100%;
+    width: 12rem;
+  }
+}

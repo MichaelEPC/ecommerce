@@ -199,7 +199,7 @@ function Cart() {
             </div>
           </div>
 
-          <div className="buyDivContainer mb-2 ml-10 mt-10 flex flex-col items-center rounded-lg bg-white shadow-lg lg:mt-0">
+          <div className="buyDivContainer mt-10 flex flex-col items-center rounded-lg bg-white shadow-lg lg:ml-10 lg:mt-0">
             <p className="mt-2 text-xl font-bold text-principal-blue">
               Payment
             </p>

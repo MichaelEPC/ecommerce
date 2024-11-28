@@ -22,11 +22,9 @@ function UniqueOrders() {
           </h1>
           <div className="flex h-auto w-full justify-between">
             <p></p>
-            <div className="flex items-center justify-center">
-              <p className="font-semibold text-principal-blue">Amount:</p>
-              <p className="ml-16 mr-8 font-semibold text-principal-blue">
-                Price:
-              </p>
+            <div className="flex items-center justify-between">
+              <p className="mr-6 font-semibold text-principal-blue">Amount:</p>
+              <p className="mr-2 font-semibold text-principal-blue">Price:</p>
             </div>
           </div>
           <div className={`h-auto rounded-md bg-transparent`}>

@@ -14,12 +14,6 @@ function FooterContainer() {
           <p className="font-semibold">Terms</p>
         </li>
         <li className="mr-3 cursor-pointer text-text-color underline">
-          <p className="font-semibold">Rights</p>
-        </li>
-        <li className="mr-3 cursor-pointer text-text-color underline">
-          <p className="font-semibold">Cookies</p>
-        </li>
-        <li className="mr-3 cursor-pointer text-text-color underline">
           <p className="font-semibold">Support</p>
         </li>
       </ul>

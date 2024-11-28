@@ -94,3 +94,10 @@
     min-width: 2rem;
   }
 }
+
+@media (max-width: 430px) {
+  .inputFilterHome {
+    height: 2.4rem;
+    min-width: 0.1rem;
+  }
+}

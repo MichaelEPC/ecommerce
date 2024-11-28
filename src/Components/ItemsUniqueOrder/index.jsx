@@ -4,7 +4,7 @@ import { shortName } from "../../utils/index";
 
 function ItemsUniqueOrder({ name, img, price, amount, totalPrice }) {
   return (
-    <article className="ItemOrderContainer border2 mt-2 flex items-center rounded-lg border-ligh-gray bg-white shadow-md">
+    <article className="ItemOrderContainer mt-2 flex items-center rounded-lg border-ligh-gray bg-white pr-1 shadow-md">
       <div className="flex h-full w-10 items-center justify-center border-r-2 border-ligh-gray pr-2">
         <img className="ml-2" src={img} alt={img} />
       </div>
